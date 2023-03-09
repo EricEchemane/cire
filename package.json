@@ -1,0 +1,26 @@
+{
+  "name": "cire",
+  "version": "1.0.0",
+  "description": "CLI tool for generating api routes in NextJs with mongoose and react-query",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EricEchemane/cire.git"
+  },
+  "keywords": [
+    "CLI",
+    "mongoose",
+    "react-query",
+    "NextJs",
+    "api-routes"
+  ],
+  "author": "Eric Echemane",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EricEchemane/cire/issues"
+  },
+  "homepage": "https://github.com/EricEchemane/cire#readme"
+}
