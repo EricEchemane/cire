@@ -1,5 +1,5 @@
 {
-	"name": "cire",
+	"name": "cire-cli",
 	"version": "1.0.0",
 	"description": "CLI tool for generating api routes in NextJs with mongoose and react-query",
 	"main": "bin/index.js",
