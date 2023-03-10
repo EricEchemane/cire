@@ -4,10 +4,19 @@ import chalk from 'chalk';
 import yargs from 'yargs';
 import fs from 'fs';
 import { hideBin } from 'yargs/helpers';
+import { welcomeMessage } from './src/index.js';
 
 yargs(hideBin(process.argv))
 	.scriptName('cire')
 	.usage('$0 <cmd> [args]')
+	.command(
+		'$0',
+		'The default command',
+		() => {},
+		() => {
+			console.log(welcomeMessage);
+		}
+	)
 	.command(
 		'model [model]',
 		'Creates a mongoose model',
