@@ -27,6 +27,8 @@ yargs(hideBin(process.argv))
 			console.log(welcomeMessage);
 		}
 	)
+	.alias('v', 'version')
+	.alias('h', 'help')
 	.command(
 		'model [model]',
 		'Creates a mongoose model',
