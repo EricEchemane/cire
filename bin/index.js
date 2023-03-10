@@ -39,12 +39,14 @@ yargs(hideBin(process.argv))
 			});
 		},
 		function (argv) {
-			const { model } = argv;
+			let { model } = argv;
 
 			if (!model) {
 				console.log(chalk.redBright('⭕ You must provide a model name'));
 				return;
 			}
+
+			model = model.charAt(0).toUpperCase() + model.slice(1);
 
 			console.log(chalk.bold(`=> Creating ${model} model...`));
 
@@ -55,14 +57,22 @@ yargs(hideBin(process.argv))
 				fs.mkdirSync(currentDir + '/models');
 			}
 
-			fs.writeFile(
-				currentDir + `/models/${model.toLowerCase()}.model.ts`,
-				'import mongoose from "mongoose";\n\n',
-				function (err) {
+			const sourceFilePath = currentDir + '/bin/templates/temp.model.ts';
+			const destinationFilePath =
+				currentDir + `/models/${model.toLowerCase()}.model.ts`;
+
+			fs.readFile(sourceFilePath, 'utf8', (err, data) => {
+				if (err) throw err;
+
+				// Replace all occurrences of the word 'foo' with 'bar' in the data
+				const replacedData = data.replace(/temp/g, model);
+
+				// Write the replaced data to the destination file
+				fs.writeFile(destinationFilePath, replacedData, (err) => {
 					if (err) throw err;
 					console.log(chalk.greenBright(`=> ${model} model has been created`));
-				}
-			);
+				});
+			});
 
 			if (argv.r) {
 				// Generate routes
