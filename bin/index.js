@@ -9,6 +9,16 @@ import { welcomeMessage } from './src/index.js';
 yargs(hideBin(process.argv))
 	.scriptName('cire')
 	.usage('$0 <cmd> [args]')
+	.alias('r', 'routes')
+	.describe(
+		'r',
+		'Generates the routes for the given model inside the /api folder'
+	)
+	.alias('q', 'queries')
+	.describe(
+		'q',
+		'Generates the react-query hooks for the given model inside the queries folder'
+	)
 	.command(
 		'$0',
 		'The default command',
