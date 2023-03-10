@@ -30,7 +30,7 @@ yargs(hideBin(process.argv))
 			const { model } = argv;
 
 			if (!model) {
-				console.log(chalk.redBright('You must provide a model name'));
+				console.log(chalk.redBright('⭕ You must provide a model name'));
 				return;
 			}
 
