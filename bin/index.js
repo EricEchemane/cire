@@ -61,6 +61,15 @@ yargs(hideBin(process.argv))
 					console.log(chalk.greenBright(`=> ${model} model has been created`));
 				}
 			);
+
+			if (argv.r) {
+				// Generate routes
+				console.log(chalk.bold(`=> Creating ${model} routes...`));
+			}
+			if (argv.q) {
+				// Generate react-query hooks
+				console.log(chalk.bold(`=> Creating ${model} react-query hooks...`));
+			}
 		}
 	)
 	.help().argv;
